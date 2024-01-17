@@ -3,7 +3,7 @@ Creating a Cybersecurity Home lab on Docker Engine using a Raspberry pi
 
 General Steps
 
-#Connecting my host computer to the raspberry pi using ssh
+#Connecting host computer to the raspberry pi using ssh
 
 ![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/628ba0c1-eb52-44fb-a5d6-5a5f1fb53ce6)
 
@@ -65,6 +65,37 @@ Commands used
 By using the ip addr command on each container, you can inspect their IP addresses. Running a ping from Kali to both the Ubuntu and Nginx containers allows you to verify the basic network connection between the Kali machine and the other two containers.
 
 ![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/f61468e7-964f-423c-9f3a-a4a2cd337717)
+
+#Downloading pre configured Webpage & NGINX c2 configuration file 
+
+DEEBOODAH PNG: https://docs.google.com/uc?export=download&id=1EmxGnRJXYjkDesrO4qGMetVJir1B0lMX 
+
+C2 Config File: https://docs.google.com/uc?export=download&id=1vUI5VAhjCsNk7a7FRCkR26AvHSKvRqAu 
+
+HTML File: https://docs.google.com/uc?export=download&id=1bV88JJ_vSadnbdZoakZjUG1sf87-40ZO 
+
+Befor using wget command I created a folder called project_files in the / directory.
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/916fafc4-383e-4e8f-8d6c-e649db3df09e)
+
+Will be using the wget command with -o to output the file onto onto the raspberry pi 
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/a06cd186-155a-4fda-88d5-4903fbf795a1)
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/c46e3618-527f-4a7e-a72d-fc6ce794cbb5)
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/32af8a76-8fd5-496f-ac0a-0b68c2d835d1)
+
+From here, copy the three files to the Nginx container (reverse proxy) using the docker cp command. Ensure you use docker ps to find the CONTAINER ID.
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/13ece8d2-3a86-43c9-9802-d0370353df2c)
+
+Go back to the reverse_proxy container where you copied the three files using docker exec -it reverse_proxy /bin/bash. Replace the index.html file with the custom index.html file using cp command and copy the dee_boo_dah.png file into the /nginx/html directory.
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/1a6e538f-37ef-464e-879d-fd8ea21d6328)
+
+The c2_config.c2 file will be moved to /etc/nginx/conf.d/ directory using the mv command.
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/5ffb71b2-5965-4b70-97a3-14789457a32e)
+
 
 
 
