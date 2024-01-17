@@ -140,9 +140,14 @@ navigate to c2_config.c2 in /etc/nginx/conf.d/ and nano c2_config.c2
 
 We will update who the specified IP address which is your reverse_proxy (172.17.0.4)which will be the default server.   
 
-Along editing the attack server which Forwards requests to the specified backend server using HTTPS.
+Along with editing the attack server which Forwards requests to the specified backend server using HTTPS.
 
 ![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/21ef9f91-aaf1-4426-83aa-bede04771e04)
 
+#Refresh Nginx configuration
+
+Anytime a change is made to a configuration file on nginx we must do a soft reset using the reload command.
+
+nginx -s reload
 
 
