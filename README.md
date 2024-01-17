@@ -33,7 +33,7 @@ https://hub.docker.com/repository/docker/wtauf1998/offensivehackinglab2024/gener
 
 #Deploy Ubuntu Container - Kali Container - Nginx Container 
 
-Ubuntu and Kali container use the same lines of code with -it enable an interactive session with the container, making it suitable for scenarios where user input is required
+The Ubuntu and Kali containers use the same set of commands with the -it option, enabling an interactive session with the container. This makes it suitable for scenarios where user input is required
 
 Container deployment code for an Nginx container will differ from that of Ubuntu and Kali containers. The -p 80 option maps port 80 of the host to port 80 of the container, and an interactive shell (/bin/sh) is run to override the default command and entry point defined in the Docker images
 
