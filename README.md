@@ -33,5 +33,10 @@ https://hub.docker.com/repository/docker/wtauf1998/offensivehackinglab2024/gener
 
 Deploy Ubuntu Container - Kali Container - Nginx Container 
 
+Ubuntu and Kali container use the same lines of code with -it enable an interactive session with the container, making it suitable for scenarios where user input is required
+
+nginx container deployment code will be different from Ubuntu and Kali container.  -p 80 Maps port 80 of the host to port 80 of the container along with running a bin/sh to get an interactive shell
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/bb203b43-2b74-4ee7-98cc-fdae70e343c5)
 
 
