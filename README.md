@@ -96,7 +96,53 @@ The c2_config.c2 file will be moved to /etc/nginx/conf.d/ directory using the mv
 
 ![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/5ffb71b2-5965-4b70-97a3-14789457a32e)
 
+#Create a selfsigned certificate using openssl so we can serve https instead of http through the reverse_proxy
 
+Go to /etc/ssl using cd.  Create a directory called private if you do not have one already using mkdir private.  
+Once that is created will use the command 'openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=US/ST=NYO=DEE, BOODAH./OU=IT/CN=deeboodah.com" '
+
+Breaking down openssl here 
+openssl req: This command is part of OpenSSL and is used for X.509 certificate requests and related functions.
+
+-x509: This option specifies that the output should be a self-signed certificate (X.509) rather than a certificate signing request (CSR).
+
+-nodes: This option indicates that the private key should not be encrypted with a passphrase.
+
+-days 365: This sets the validity period of the certificate to 365 days.
+
+-newkey rsa:4096: This generates a new RSA private key with a length of 4096 bits.
+
+-keyout /etc/ssl/private/nginx-selfsigned.key: This specifies the path and filename where the generated private key should be saved.
+
+-out /etc/ssl/certs/nginx-selfsigned.crt: This specifies the path and filename where the generated self-signed certificate should be saved.
+
+-subj "/C=US/ST=NY/O=DEE, BOODAH./OU=IT/CN=deeboodah.com": This provides the subject information for the certificate. It includes:
+
+/C=US: Country code (United States)
+
+/ST=NY: State or Province (New York)
+
+/O=DEE, BOODAH.: Organization name (DEE, BOODAH.)
+
+/OU=IT: Organizational Unit (IT)
+
+/CN=deeboodah.com: Common Name (deeboodah.com)
+
+This has just created a public and private key.
+
+#Changing the IP address in our reverse_proxy c2_config.c2 file.
+
+I will install nano to use as my text editor using the command apk install nano
+
+navigate to c2_config.c2 in /etc/nginx/conf.d/ and nano c2_config.c2 
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/b9d4c1ef-e596-4d1f-ad9b-91609d3843b9)
+
+We will update who the specified IP address which is your reverse_proxy (172.17.0.4)which will be the default server.   
+
+Along editing the attack server which Forwards requests to the specified backend server using HTTPS.
+
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/21ef9f91-aaf1-4426-83aa-bede04771e04)
 
 
 
