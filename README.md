@@ -101,6 +101,8 @@ The c2_config.c2 file will be moved to /etc/nginx/conf.d/ directory using the mv
 Go to /etc/ssl using cd.  Create a directory called private if you do not have one already using mkdir private.  
 Once that is created will use the command 'openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt -subj "/C=US/ST=NYO=DEE, BOODAH./OU=IT/CN=deeboodah.com" '
 
+![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/7cd01418-ff28-4da8-b752-87d7c7b5f73c)
+
 Breaking down openssl here 
 openssl req: This command is part of OpenSSL and is used for X.509 certificate requests and related functions.
 
