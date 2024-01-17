@@ -35,8 +35,28 @@ Deploy Ubuntu Container - Kali Container - Nginx Container
 
 Ubuntu and Kali container use the same lines of code with -it enable an interactive session with the container, making it suitable for scenarios where user input is required
 
-nginx container deployment code will be different from Ubuntu and Kali container.  -p 80 Maps port 80 of the host to port 80 of the container along with running a bin/sh to get an interactive shell
+Container deployment code for an Nginx container will differ from that of Ubuntu and Kali containers. The -p 80 option maps port 80 of the host to port 80 of the container, and an interactive shell (/bin/sh) is run to override the default command and entry point defined in the Docker images
 
 ![image](https://github.com/Will-Tauferner/Cybersecurity-Homelab/assets/112906919/bb203b43-2b74-4ee7-98cc-fdae70e343c5)
+
+Next Step is Downloading Packages 
+
+Kali Container 
+
+Commands used
+1.apt install iproute2 > IP routing:
+2.apt install iputils-ping> Ping Utility:
+3.apt install git > git:
+
+Ubuntu Container
+
+Commands used 
+1.apt install iproute2 > IP routing:
+2.apt install iputils-ping> Ping Utility:
+
+nginx Container 
+1.apk add bash-completion
+2.apk add openssl
+
 
 
